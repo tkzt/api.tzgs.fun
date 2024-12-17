@@ -1,0 +1,12 @@
+{
+  "cSpell.words": [
+    "fasm",
+    "onupdate",
+    "pyproject",
+    "redoc",
+    "tzgs"
+  ],
+  "python.analysis.extraPaths": [
+    "./app"
+  ]
+}
