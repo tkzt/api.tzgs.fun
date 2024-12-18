@@ -1,3 +1,1 @@
-# FASM
-
-This is a template based on FastApi & SqlModel, providing basic modules integration and basic users, roles, permissions management.
+This REPO contains the APIs for the `tkzt.cn` project. And APIs will finally be deployed under `api.tzgs.fun`.

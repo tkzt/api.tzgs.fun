@@ -1,8 +1,8 @@
-"""Adds Reaction
+"""Adds reaction
 
-Revision ID: c154f571e389
+Revision ID: 6257eaa13824
 Revises: 1254e3bb5e04
-Create Date: 2024-12-15 20:50:52.718623
+Create Date: 2024-12-18 15:44:35.250421
 
 """
 from typing import Sequence, Union
@@ -13,7 +13,7 @@ import sqlmodel  # noqa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'c154f571e389'
+revision: str = '6257eaa13824'
 down_revision: Union[str, None] = '1254e3bb5e04'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -26,6 +26,7 @@ def upgrade() -> None:
     sa.Column('created_at', sa.Integer(), nullable=False),
     sa.Column('deleted_at', sa.Integer(), nullable=True),
     sa.Column('id', sa.Uuid(), nullable=False),
+    sa.Column('objective', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('reaction', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('reactor', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.PrimaryKeyConstraint('id')

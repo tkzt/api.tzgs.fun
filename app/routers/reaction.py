@@ -1,5 +1,5 @@
 from uuid import UUID
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from fastapi_async_sqlalchemy import db
 from sqlmodel import select
 
@@ -13,8 +13,12 @@ router = APIRouter(prefix="/reactions")
 
 
 @router.get("", response_model=BaseResponse[list[Reaction]])
-async def get_reactions():
-    reactions = (await db.session.scalars(select(Reaction))).all()
+async def get_reactions(objective: str = Query()):
+    reactions = (
+        await db.session.scalars(
+            select(Reaction).where(Reaction.objective == objective)
+        )
+    ).all()
     return make_response(data=reactions)
 
 
@@ -22,6 +26,7 @@ async def get_reactions():
 async def create_reaction(reaction_request: CreateReactionRequest):
     exists_reaction = await db.session.scalar(
         select(Reaction).where(
+            Reaction.objective == reaction_request.objective,
             Reaction.reaction == reaction_request.reaction,
             Reaction.reactor == reaction_request.reactor,
         )
