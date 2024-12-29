@@ -1,7 +1,7 @@
 [project]
-name = "fasm"
+name = "api.tzgs.fun"
 version = "0.1.0"
-description = "A template based on FastApi & SqlModel"
+description = "APIs used in self developed projects."
 authors = [
     {name = "Allen Tao", email = "allen@tkzt.cn"},
 ]

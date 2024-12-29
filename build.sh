@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "Building api_tzgs_cn..."
+echo "Building api_tzgs_fun..."
 
-NAME=api_tzgs_cn
+NAME=api_tzgs_fun
 VERSION=$(perl -nle 'print $1 if /version = "([^"]+)"/ and !$seen++' pyproject.toml)
 
 # Make sure the version is not empty
